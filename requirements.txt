@@ -1,0 +1,4 @@
+django==5.1.4
+psycopg2==2.9.10
+prettyconf==2.2.1
+telegramtk==0.1.0
