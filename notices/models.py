@@ -18,3 +18,7 @@ class Notice(models.Model):
 
     def __str__(self):
         return self.body
+
+    @property
+    def to(self) -> int | None:
+        return self.recipient.profile.telegram_chat_id
