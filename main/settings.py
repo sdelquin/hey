@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_rq',
     'profiles.apps.ProfilesConfig',
     'notices.apps.NoticesConfig',
 ]
@@ -132,3 +133,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 TELEGRAM_BOT_TOKEN = config('TELEGRAM_BOT_TOKEN')
 telegramtk.init(TELEGRAM_BOT_TOKEN)
+
+RQ_QUEUES = {
+    'default': {
+        'HOST': config('REDIS_HOST', default='localhost'),
+        'PORT': config('REDIS_PORT', default=6379, cast=int),
+        'DB': config('REDIS_DB', default=0, cast=int),
+    }
+}

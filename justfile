@@ -8,11 +8,11 @@ pip-cmd := shell('if [ -x "$(command -v uv)" ]; then echo "uv pip"; else echo "p
 # ==============================================================================
 
 # Launch development server
-runserver: check-venv postgres
+runserver: check-venv postgres redis
     ./manage.py runserver
 
 # Create Django project
-start: check-venv postgres
+start: check-venv
     django-admin startproject main .
 
 # Launch Django interactive shell

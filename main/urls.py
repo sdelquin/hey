@@ -16,11 +16,12 @@ Including another URLconf
 """
 
 from django.contrib import admin
-from django.urls import path
+from django.urls import include, path
 
 import notices.views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('<uuid:notice_uuid>/', notices.views.submit_notice, name='submit-notice'),
+    path('django-rq/', include('django_rq.urls')),
 ]
