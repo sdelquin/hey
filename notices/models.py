@@ -1,7 +1,10 @@
 import uuid
+from urllib.parse import urljoin
 
+import qrcode
 from django.conf import settings
 from django.db import models
+from PIL.Image import Image
 
 
 class Notice(models.Model):
@@ -22,3 +25,11 @@ class Notice(models.Model):
     @property
     def to(self) -> int | None:
         return self.recipient.profile.telegram_chat_id
+
+    @property
+    def url(self) -> str:
+        return urljoin(settings.BASE_URL, str(self.uuid))
+
+    @property
+    def qrcode(self) -> Image:
+        return qrcode.make(self.url)

@@ -142,3 +142,5 @@ RQ_QUEUES = {
         'DB': config('REDIS_DB', default=0, cast=int),
     }
 }
+
+BASE_URL = config('BASE_URL')
