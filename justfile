@@ -133,6 +133,7 @@ deploy:
     python manage.py migrate
     python manage.py collectstatic --no-input
     supervisorctl restart hey
+    supervisorctl restart hey-rq
 
 # Enable testing with pytest inside VSCode
 enable-vscode-pytest:
