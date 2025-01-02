@@ -143,4 +143,4 @@ RQ_QUEUES = {
     }
 }
 
-BASE_URL = config('BASE_URL')
+NOTICE_BASE_URL = config('NOTICE_BASE_URL')

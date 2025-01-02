@@ -28,7 +28,7 @@ class Notice(models.Model):
 
     @property
     def url(self) -> str:
-        return urljoin(settings.BASE_URL, str(self.uuid))
+        return urljoin(settings.NOTICE_BASE_URL, str(self.uuid))
 
     @property
     def qrcode(self) -> Image:
