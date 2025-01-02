@@ -26,3 +26,5 @@ class NoticeAdmin(admin.ModelAdmin):
     list_display = ('pk', url, 'recipient', 'body')
     exclude = ('uuid',)
     actions = [generate_qr]
+    search_fields = ('url', 'body')
+    list_filter = ('recipient',)
